@@ -20,7 +20,7 @@ public class Client {
 		BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		System.out.println("서버와 데이터를 주고받을 준비가 되었음...");
 		
-		System.out.println("내용을 입력하세요: ");
+		System.out.print("내용을 입력하세요: ");
 		String text = keyboard.readLine();
 		
 		out.println(text);
