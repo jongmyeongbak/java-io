@@ -31,11 +31,13 @@ public class Server {
 		
 		// BufferedReader의 readLine() 메서드는 클라이언트가 보내는 메시지가 수신될 때까지 대기한다.
 		// 클라이언트가 보내는 메시지가 수신되면 메시지를 읽어서 반환한다.
-		String text = in.readLine();
-		System.out.println("클라이언트가 보낸 메시지: " + text);
-		
-		// PrintWriter의 println() 메서드를 사용해 클라이언트에게 메시지를 송수신한다.
-		out.println("메시지를 정상적으로 수신하였습니다. 수신된 메시지: [" + text + "]");
+		String text;
+		while((text = in.readLine()) != null) {
+			System.out.println("클라이언트가 보낸 메시지: " + text);
+			
+			// PrintWriter의 println() 메서드를 사용해 클라이언트에게 메시지를 송수신한다.
+			out.println("메시지를 정상적으로 수신하였습니다. 수신된 메시지: [" + text + "]");
+		}
 		
 		serverSocket.close();
 		System.out.println("서버 프로그램이 종료되었음...");
