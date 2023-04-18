@@ -87,6 +87,6 @@ public class Order {
 	}
 	
 	public String generateText() {
-		return MessageFormat.format("{0},{1},{2},{3},{4},{5},{6}", no, DateUtils.toText(date), userId, productNo, quantity, orderPrice, bonusPoint);
+		return MessageFormat.format("{0},{1},{2},{3},{4},{5},{6}", String.valueOf(no), DateUtils.toText(date), userId, String.valueOf(productNo), String.valueOf(quantity), String.valueOf(orderPrice), String.valueOf(bonusPoint));
 	}
 }

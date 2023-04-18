@@ -1,9 +1,9 @@
 package sample09;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,22 +42,20 @@ public class UserRepository {
 		}
 		return null;
 	}
-
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
-
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
-
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
+	
+	public void save() {
+		String path = "src/sample09/users.txt";
+		try (PrintWriter out = new PrintWriter(path)) {
+			for (User user : users) {
+				/*
+				 * user.generateText()는 User객체의 사용자정보를
+				 * "hong,zxcv1234,홍길동,1000"과 같은 문자열로 변환해 반환한다.
+				 */
+				String text = user.generateText();
+				out.println(text);
+			}
+		} catch (IOException e) {
+			throw new RuntimeException("users.txt 파일 쓰기 오류", e);
+		}
+	}
 }

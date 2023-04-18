@@ -3,6 +3,7 @@ package sample09;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,51 +52,15 @@ public class ProductRepository {
 		return null;
 	}
 	
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
-	
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
-	
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
-	
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
-	
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
-	
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
-	
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
-	
-	/*
-	 * 	반환타입: 
-	 * 	메서드명: 
-	 * 	매개변수: 
-	 */
+	public void save() {
+		String path = "src/sample09/products.txt";
+		try (PrintWriter out = new PrintWriter(path)) {
+			for (Product product : products) {
+				String text = product.generateText();
+				out.println(text);
+			}
+		} catch (IOException e) {
+			throw new RuntimeException("products.txt 파일 쓰기 오류", e);
+		}
+	}
 }

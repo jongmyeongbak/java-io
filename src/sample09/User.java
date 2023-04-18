@@ -57,6 +57,6 @@ public class User {
 	}
 	
 	public String generateText() {
-		return MessageFormat.format("{0},{1},{2},{3}", id, password, name, point);
+		return MessageFormat.format("{0},{1},{2},{3}", id, password, name, String.valueOf(point));
 	}
 }
